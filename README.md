@@ -4,8 +4,8 @@ A simple Flask server for a Fast.ai text classifier model. The server uses the p
 ## Setup
 
 1. Train your text classifier and save the model.
-2. Copy the model to the `models` directory.
-3. Copy the data to the `data/train` directory.
+2. Copy the `.pth` model to the `models` directory.
+3. Copy the `.csv` data to the `data/train` directory.
 
 ## Deploy
 1. Follow the Fast.ai instructions for AWS Beanstalk: https://course.fast.ai/deployment_aws_beanstalk.html
