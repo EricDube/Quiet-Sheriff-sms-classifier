@@ -1,5 +1,5 @@
 # fastai-text-classifier-server
-A simple Flask server for a Fast.ai text classifier model.
+A simple Flask server for a Fast.ai text classifier model. Included is the SMS classifier notebook which I used to train my moodel.
 
 Example:
 ```
