@@ -1,3 +1,2 @@
 .idea
-val-codes-000.pth
-t200.csv
+*.pkl

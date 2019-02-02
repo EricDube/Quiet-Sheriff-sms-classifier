@@ -1,3 +1,4 @@
+from fastai.basic_train import load_callback
 from flask import Flask, request, jsonify
 
 import time
@@ -10,9 +11,6 @@ from settings import *
 path = Path(data_dir)
 
 fastai.device = torch.device('cpu')  # run inference on cpu
-data_clas = TextClasDataBunch.from_csv(path, 'train/t200.csv', bs=32)
-learn = text_classifier_learner(data_clas, drop_mult=0.5)
-learn = learn.load('val-codes-000')
 
 app = Flask(__name__)
 
@@ -34,9 +32,29 @@ def predict():
     app.logger.info("Execution time: %0.02f seconds" % (dt))
     app.logger.info("Image %s classified as %s" % (sms, pred_class))
 
-    return jsonify({"prediction": str(pred_class)})
+    return jsonify({
+        "prediction": str(pred_class),
+        "accuracy": str(outputs)
+    })
+
+
+def load_cpu_learner(path:PathOrStr, fname:PathOrStr='export.pkl', test:ItemList=None):
+    state = torch.load(open(Path(path)/fname, 'rb'), map_location='cpu')
+    model = state.pop('model')
+    src = LabelLists.load_state(path, state.pop('data'))
+    if test is not None: src.add_test(test)
+    data = src.databunch()
+    cb_state = state.pop('cb_state')
+    clas_func = state.pop('cls')
+    res = clas_func(data, model, **state)
+    res.callback_fns = state['callback_fns'] #to avoid duplicates
+    res.callbacks = [load_callback(c,s, res) for c,s in cb_state.items()]
+    return res
 
 
 if __name__ == '__main__':
-    # app.run(host="0.0.0.0", debug=True)
+    learn = load_cpu_learner(path)
+
     app.run(host="0.0.0.0", debug=True, port=PORT)
+
+
