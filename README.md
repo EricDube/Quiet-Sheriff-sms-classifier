@@ -18,7 +18,7 @@ Example:
 ```
 learner.export()
 ```
-2. Copy the export.pkl file into the data directory.
+2. Copy the `export.pkl` file into the data directory.
 
 ## Deploy
 1. Follow the Fast.ai instructions for AWS Beanstalk: https://course.fast.ai/deployment_aws_beanstalk.html
