@@ -1,17 +1,13 @@
-FROM python:3.7-slim-stretch
+FROM conda/miniconda3
 
-RUN apt-get update && apt-get install -y git python3-dev gcc \
-    && rm -rf /var/lib/apt/lists/*
+RUN conda install -c pytorch pytorch-cpu torchvision
+RUN conda install -c fastai fastai==1.0.44
+RUN conda install -c anaconda flask
 
-COPY requirements.txt .
-
-RUN pip install --upgrade pip
-
-RUN pip install --no-cache-dir -r requirements.txt --upgrade
 
 COPY ./ ./
 
-EXPOSE 8080
+EXPOSE 80
 
 ENTRYPOINT ["python"]
 

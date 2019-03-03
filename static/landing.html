@@ -1,0 +1,124 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Quiet Sheriff</title>
+    <meta name="description" content="The Quiet Sheriff SMS classifier">
+    <meta name="author" content="Isaac Shannon">
+
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+
+    <style>
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+
+    .glory { margin-bottom: 50px;}
+
+    h1,h2,p {
+        text-align:center;
+        font-family: 'Slabo 27px', serif;
+        }
+
+    table.darkTable {
+      font-family: "Arial Black", Gadget, sans-serif;
+      border: 2px solid #000000;
+      background-color: #4A4A4A;
+      width: 50%;
+      height: 200px;
+      text-align: center;
+      border-collapse: collapse;
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+    table.darkTable td, table.darkTable th {
+      border: 1px solid #4A4A4A;
+      padding: 3px 2px;
+    }
+    table.darkTable tbody td {
+      font-size: 13px;
+      color: #E6E6E6;
+    }
+    table.darkTable tr:nth-child(even) {
+      background: #888888;
+    }
+    table.darkTable thead {
+      background: #000000;
+      border-bottom: 3px solid #000000;
+    }
+    table.darkTable thead th {
+      font-size: 15px;
+      font-weight: bold;
+      color: #E6E6E6;
+      text-align: center;
+      border-left: 2px solid #4A4A4A;
+    }
+    table.darkTable thead th:first-child {
+      border-left: none;
+    }
+
+    table.darkTable tfoot {
+      font-size: 12px;
+      font-weight: bold;
+      color: #E6E6E6;
+      background: #000000;
+      background: -moz-linear-gradient(top, #404040 0%, #191919 66%, #000000 100%);
+      background: -webkit-linear-gradient(top, #404040 0%, #191919 66%, #000000 100%);
+      background: linear-gradient(to bottom, #404040 0%, #191919 66%, #000000 100%);
+      border-top: 1px solid #4A4A4A;
+    }
+    table.darkTable tfoot td {
+      font-size: 12px;
+    }
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+<img src="https://s3-us-west-2.amazonaws.com/hushed-fastai/sheriff.png" alt="Quiet Sheriff" class="center glory">
+<h1>Quiet Sheriff</h1>
+<p>An open source AI powered SMS classifier.</p>
+
+<h1>Classification Categories</h1>
+<table class="darkTable">
+    <thead>
+    <tr>
+        <th>Category</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>good</td>
+        <td>A regular, run of the mill SMS.</td>
+    </tr>
+    <tr>
+        <td>verification</td>
+        <td>This SMS contains a verification code.</td>
+    </tr>
+    <tr>
+        <td>spam</td>
+        <td>This SMS contains unsolicited advertisements.</td>
+    </tr>
+    </tbody>
+</table>
+
+<h1>Usage</h1>
+<p><a href="https://www.quietsheriff.com/predict?sms=I%20am%20an%20sms">www.quietsheriff.com/predict?sms=I%20am%20an%20sms</a>
+</p>
+<p>{ "accuracy": 0.9999747276306152, "prediction": "good" }</p>
+
+<h1>Source Code</h1>
+<p><a href="https://github.com/isaacshannon/Quiet-Sheriff-sms-classifier">github.com/isaacshannon/Quiet-Sheriff-sms-classifier</a>
+</p>
+
+</body>
+</html>
