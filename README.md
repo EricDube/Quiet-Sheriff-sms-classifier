@@ -34,3 +34,6 @@ You'll need an AWS account to get through this part.
 1. Search for ECR on the AWS web console, and then create a repository which will hold your docker image.
 2. Click on `view push commands` and follow the instructions to upload your image.
 3. Follow Amazon's directions for deploying a docker container: https://aws.amazon.com/getting-started/tutorials/deploy-docker-containers/ . When you create the task definition paste in the image URI of the docker image you uploaded to ECR. 
+
+## What it looks like after
+https://www.quietsheriff.com/
