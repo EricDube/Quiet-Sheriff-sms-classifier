@@ -1,13 +1,11 @@
-FROM conda/miniconda3
+FROM quietsheriff-base:latest
 
-RUN conda install -c pytorch pytorch-cpu torchvision
-RUN conda install -c fastai fastai==1.0.44
-RUN conda install -c anaconda flask
+RUN mkdir /data
+COPY data/export.pkl data/export.pkl
+ADD sms-classifier.ipynb .
+ADD server.py .
 
-
-COPY ./ ./
-
-EXPOSE 80
+EXPOSE 8080
 
 ENTRYPOINT ["python"]
 
